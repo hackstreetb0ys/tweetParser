@@ -12,8 +12,10 @@ const _elasticSearchClient = new _elasticSearch.Client( { host: _elasticSearchUr
 
 const _forEachRabbitItem = function( itemHandler )
 {
+	console.log('_forEachRabbitItem');
 	_connection.on('ready', function () 
 	{
+		console.log('_connection ready');
 		_connection.queue('tweets', function (q) 
 		{
 		  // Catch all messages 
@@ -39,6 +41,7 @@ const _insertDocument = function(data)
 
 exports.startParsing = function()
 {
+	console.log('startParsing');
 	_forEachRabbitItem(function( item, queue )
 	{				
 		const messageText = item;
