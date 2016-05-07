@@ -22,9 +22,9 @@ exports.sentimentScore = function( text, callback )
 
 exports.extractKeywords = function( text, callback )
 {
-	text = text.replace(/(?:https?|ftp):\/\/[\n\S]+/g, '');
-	text = text.replace(/^rt\W/g, '');
-	text = text.replace(/\Wrt\W/g, '');
+	text = text.replace(/(?:https?|ftp):\/\/[\n\S]+/gi, '');
+	text = text.replace(/^rt\W/gi, '');
+	text = text.replace(/\Wrt\W/gi, '');
 
 	_retext().use( _keywords ).process(text, function ( err, file )
 		{
