@@ -19,7 +19,7 @@ build:
 
     - script:
         name: Copy files
-        code: cp -R $WERCKER_ROOT/* $WERCKER_OUTPUT_DIR/app
+        code: cp -R . $WERCKER_OUTPUT_DIR/app
 
 deploy:
     hub:
