@@ -1,11 +1,11 @@
-const _rabbitmqUrl = '10.7.0.6';
+const _rabbitmqUrl = 'rabbit';
 const _elasticSearchUrl = '?';
 
 
 const _parser = require('./parser.js');
 
 const _amqp = require('amqp');
-const _connection = _amqp.createConnection( { host: _rabbitmqUrl, login: "user", password: "password" } );
+const _connection = _amqp.createConnection( { host: _rabbitmqUrl, port: 5672, login: "user", password: "password" } );
 
 const _elasticSearch = require('elasticsearch');
 const _elasticSearchClient = new _elasticSearch.Client( { host: _elasticSearchUrl } );
