@@ -45,7 +45,7 @@ exports.startParsing = function()
 	_forEachRabbitItem(function(item, queue )
 	{				
 		const messageText = item.data.toString();
-		// console.log(messageText);
+		
 		var documentData = {};
 
 		_parser.extractKeywords( messageText, function( err, result )

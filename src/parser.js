@@ -34,7 +34,10 @@ exports.extractKeywords = function( text, callback )
 
 	        space.keywords.forEach(function (keyword) 
 	        {
-	            keywords.push( _normalize( _nlcstToString( keyword.matches[0].node ) ) );
+	        	const keywordString =  _normalize( _nlcstToString( keyword.matches[0].node ) );
+	            
+	            if( keywordString.length > 1 )
+		            keywords.push( keywordString );
 	        });
 	        
 	        callback( err, keywords );
