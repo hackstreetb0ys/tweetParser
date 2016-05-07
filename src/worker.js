@@ -16,7 +16,7 @@ const _forEachRabbitItem = function( itemHandler )
 	_connection.on('ready', function () 
 	{
 		console.log('_connection ready');
-		_connection.queue('tweets', function (q) 
+		_connection.queue('tweets', {noDeclare: true}, function (q) 
 		{
 		  // Catch all messages 
 		  q.bind('#');
