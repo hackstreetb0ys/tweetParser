@@ -1,5 +1,5 @@
 const _rabbitmqUrl = 'rabbit';
-const _elasticSearchUrl = '?';
+const _elasticSearchUrl = 'elastic:9200';
 
 
 const _parser = require('./parser.js');
@@ -60,7 +60,7 @@ exports.startParsing = function()
 
 				console.log(documentData);
 
-				// _insertDocument(documentData);
+				_insertDocument(documentData);
 				
 				queue.shift();
 			});
