@@ -5,7 +5,7 @@ const _elasticSearchUrl = '?';
 const _parser = require('./parser.js');
 
 const _amqp = require('amqp');
-const _connection = _amqp.createConnection( { host: _rabbitmqUrl } );
+const _connection = _amqp.createConnection( { host: _rabbitmqUrl. login: "user", password: "password" } );
 
 const _elasticSearch = require('elasticsearch');
 const _elasticSearchClient = new _elasticSearch.Client( { host: _elasticSearchUrl } );

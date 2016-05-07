@@ -37,5 +37,5 @@ deploy:
         password: $HUB_PASSWORD
         tag: $WERCKER_GIT_COMMIT, latest
         repository: anvilcity/tweet-parser
-        workdir: /app
+        workdir: /app/app
         entrypoint: npm start
