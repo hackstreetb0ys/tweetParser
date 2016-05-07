@@ -18,6 +18,42 @@ describe('parser', function()
 				}
 			);
 		});
+
+		describe('#stipping_useless_crap', function () 
+		{
+			it('urls', function () 
+			{
+				parser.extractKeywords('apple is doing good http://someurl.com/test', function( err, result )
+					{					
+						const expected = ['apple'];
+
+						assert.equal(expected[0], result[0]);
+					}
+				);
+			});
+
+			it('rt', function () 
+			{
+				parser.extractKeywords('rt apple is doing good http://someurl.com/test', function( err, result )
+					{					
+						const expected = ['apple'];
+
+						assert.equal(expected[0], result[0]);
+					}
+				);
+			});
+
+			it('rt:', function () 
+			{
+				parser.extractKeywords('rt: apple is doing good http://someurl.com/test', function( err, result )
+					{					
+						const expected = ['apple'];
+
+						assert.equal(expected[0], result[0]);
+					}
+				);
+			});
+		});
 	});
 
 	describe('#sentiment_scoring', function () 

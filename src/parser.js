@@ -22,10 +22,12 @@ exports.sentimentScore = function( text, callback )
 
 exports.extractKeywords = function( text, callback )
 {
+	text = text.replace(/(?:https?|ftp):\/\/[\n\S]+/g, '');
+	text = text.replace(/^rt\W/g, '');
+	text = text.replace(/\Wrt\W/g, '');
+
 	_retext().use( _keywords ).process(text, function ( err, file )
 		{
-			// TODO: handle err
-
 			const space = file.namespace('retext');
 
 			var keywords = [];
