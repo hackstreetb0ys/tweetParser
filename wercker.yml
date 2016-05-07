@@ -25,7 +25,7 @@ deploy:
     hub:
     - script:
         name: Copy files two
-        code: cp -R $WERCKER_OUTPUT_DIR/app / 
+        code: mv $WERCKER_OUTPUT_DIR/app / 
     - internal/docker-push:
         username: $HUB_USER
         password: $HUB_PASSWORD
