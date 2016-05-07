@@ -1,11 +1,11 @@
 const _rabbitmqUrl = 'rabbit';
-const _elasticSearchUrl = '?';
+const _elasticSearchUrl = 'elastic:9200';
 
 
 const _parser = require('./parser.js');
 
 const _amqp = require('amqp');
-const _connection = _amqp.createConnection( { host: _rabbitmqUrl } );
+const _connection = _amqp.createConnection( { host: _rabbitmqUrl, port: 5672, login: "user", password: "password" } );
 
 const _elasticSearch = require('elasticsearch');
 const _elasticSearchClient = new _elasticSearch.Client( { host: _elasticSearchUrl } );
@@ -16,7 +16,7 @@ const _forEachRabbitItem = function( itemHandler )
 	_connection.on('ready', function () 
 	{
 		console.log('_connection ready');
-		_connection.queue('tweets', function (q) 
+		_connection.queue('tweets', {noDeclare: true}, function (q) 
 		{
 		  // Catch all messages 
 		  q.bind('#');
@@ -42,10 +42,10 @@ const _insertDocument = function(data)
 exports.startParsing = function()
 {
 	console.log('startParsing');
-	_forEachRabbitItem(function( item, queue )
+	_forEachRabbitItem(function(item, queue )
 	{				
-		const messageText = item;
-
+		const messageText = item.data.toString();
+		// console.log(messageText);
 		var documentData = {};
 
 		_parser.extractKeywords( messageText, function( err, result )
@@ -60,7 +60,7 @@ exports.startParsing = function()
 
 				console.log(documentData);
 
-				// _insertDocument(documentData);
+				_insertDocument(documentData);
 				
 				queue.shift();
 			});
