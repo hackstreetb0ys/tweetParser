@@ -1,0 +1,26 @@
+{
+  "name": "tweetparser",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/anvilCity/tweetParser.git"
+  },
+  "author": "James Frost <hello@jamesfrost.me> (http://jamesfrost.me/)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/anvilCity/tweetParser/issues"
+  },
+  "homepage": "https://github.com/anvilCity/tweetParser#readme",
+  "dependencies": {
+    "chai": "^3.5.0",
+    "mocha": "^2.4.5",
+    "nlcst-to-string": "^1.1.0",
+    "retext": "^2.0.0",
+    "retext-keywords": "^1.0.1"
+  }
+}
