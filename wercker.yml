@@ -15,14 +15,17 @@ build:
 
     - script:
         name: Make directory
-        code: mkdir /app
+        code: mkdir $WERCKER_OUT_DIR/app
 
     - script:
         name: Copy files
-        code: cp -R $WERCKER_ROOT/* /app
+        code: cp -R $WERCKER_ROOT/* $WERCKER_OUT_DIR/app
 
 deploy:
     hub:
+    - script:
+        name: Copy files
+        code: cp -R $WERCKER_OUT_DIR/app /app 
     - internal/docker-push:
         username: $HUB_USER
         password: $HUB_PASSWORD
