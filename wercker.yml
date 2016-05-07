@@ -1,4 +1,4 @@
-box: ragnarula/node:4.4.4
+box: node:4.4.4
 build:
   steps:
     - script:
