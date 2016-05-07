@@ -22,6 +22,7 @@ build:
         code: cp -R $WERCKER_ROOT/* $WERCKER_OUTPUT_DIR/app
 
 deploy:
+    box: node:4.4.4
     hub:
     - script:
         name: Copy files two
@@ -31,4 +32,5 @@ deploy:
         password: $HUB_PASSWORD
         tag: $WERCKER_GIT_COMMIT, latest
         repository: anvilcity/tweet-parser
+        workdir: /app
         entrypoint: npm start
