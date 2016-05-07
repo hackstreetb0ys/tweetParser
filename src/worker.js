@@ -40,8 +40,8 @@ const _insertDocument = function(data)
 exports.startParsing = function()
 {
 	_forEachRabbitItem(function( item, queue )
-	{		
-		const messageText = item.text;
+	{				
+		const messageText = item;
 
 		var documentData = {};
 
@@ -56,7 +56,7 @@ exports.startParsing = function()
 				documentData.dateSaved = new Date().getTime();
 
 				console.log(documentData);
-				
+
 				// _insertDocument(documentData);
 				
 				queue.shift();
