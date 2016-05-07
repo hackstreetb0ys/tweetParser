@@ -19,13 +19,13 @@ build:
 
     - script:
         name: Copy files
-        code: cp -R $WERCKER_ROOT/* $WERCKER_OUT_DIR/app
+        code: cp -R $WERCKER_ROOT/* $WERCKER_OUTPUT_DIR/app
 
 deploy:
     hub:
     - script:
-        name: Copy files
-        code: cp -R $WERCKER_OUT_DIR/app / 
+        name: Copy files two
+        code: cp -R $WERCKER_OUTPUT_DIR/app / 
     - internal/docker-push:
         username: $HUB_USER
         password: $HUB_PASSWORD
