@@ -15,7 +15,6 @@ exports.sentimentScore = function( text, callback )
 	{
 	    return function (cst) 
 	    {
-	        // console.log( cst );
 	        callback( cst );
 	    };
 	}).process(text);
@@ -33,7 +32,7 @@ exports.extractKeywords = function( text, callback )
 
 	        space.keywords.forEach(function (keyword) 
 	        {
-	            keywords.push( _nlcstToString(keyword.matches[0].node) );
+	            keywords.push( _nlcstToString( keyword.matches[0].node ) );
 	        });
 	        
 	        callback( err, keywords );
