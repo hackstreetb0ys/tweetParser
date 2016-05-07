@@ -30,7 +30,7 @@ deploy:
         
     - script:
         name: Copy files three
-        code: cp -R . /app
+        code: cp -R . /app/
 
     - internal/docker-push:
         username: $HUB_USER
