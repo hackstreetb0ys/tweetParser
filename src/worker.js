@@ -28,7 +28,11 @@ const _forEachRabbitItem = function( itemHandler )
 
 const _insertDocument = function(data)
 {
-	console.log(data);
+	_elasticSearchClient.index({
+		index: 'tweets',
+		type: 'tweet',
+		body: data
+	});
 };
 
 exports.startParsing = function()

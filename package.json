@@ -22,6 +22,7 @@
     "chai": "^3.5.0",
     "elasticsearch": "^11.0.1",
     "mocha": "^2.4.5",
+    "nlcst-normalize": "^1.1.0",
     "nlcst-to-string": "^1.1.0",
     "retext": "^2.0.0",
     "retext-keywords": "^1.0.1",

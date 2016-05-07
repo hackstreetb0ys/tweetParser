@@ -2,6 +2,7 @@ const _retext = require('retext');
 const _keywords = require('retext-keywords');
 const _nlcstToString = require('nlcst-to-string');
 const _sentiment = require('retext-sentiment');
+const _normalize = require('nlcst-normalize');
 
 exports.parse = function( text, callback )
 {
@@ -31,7 +32,7 @@ exports.extractKeywords = function( text, callback )
 
 	        space.keywords.forEach(function (keyword) 
 	        {
-	            keywords.push( _nlcstToString( keyword.matches[0].node ) );
+	            keywords.push( _normalize( _nlcstToString( keyword.matches[0].node ) ) );
 	        });
 	        
 	        callback( err, keywords );
