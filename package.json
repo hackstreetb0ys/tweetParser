@@ -21,6 +21,8 @@
     "mocha": "^2.4.5",
     "nlcst-to-string": "^1.1.0",
     "retext": "^2.0.0",
-    "retext-keywords": "^1.0.1"
+    "retext-keywords": "^1.0.1",
+    "retext-sentiment": "^1.0.0",
+    "unist-util-inspect": "^4.0.0"
   }
 }

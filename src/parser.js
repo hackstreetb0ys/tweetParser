@@ -1,13 +1,27 @@
- const _retext = require('retext');
- const _keywords = require('retext-keywords');
- const nlcstToString = require('nlcst-to-string');
+const _retext = require('retext');
+const _keywords = require('retext-keywords');
+const _nlcstToString = require('nlcst-to-string');
+const _sentiment = require('retext-sentiment');
+const inspect = require('unist-util-inspect');
 
 exports.parse = function( text, callback )
 {
 	_extractKeywords( text, callback );
 };
 
-const _extractKeywords = function( text, callback )
+exports.sentimentScore = function( text, callback )
+{
+	_retext().use( _sentiment ).use(function () 
+	{
+	    return function (cst) 
+	    {
+	        // console.log( cst );
+	        callback( cst );
+	    };
+	}).process(text);
+};
+
+exports.extractKeywords = function( text, callback )
 {
 	_retext().use( _keywords ).process(text, function ( err, file )
 		{
@@ -19,7 +33,7 @@ const _extractKeywords = function( text, callback )
 
 	        space.keywords.forEach(function (keyword) 
 	        {
-	            keywords.push( nlcstToString(keyword.matches[0].node) );
+	            keywords.push( _nlcstToString(keyword.matches[0].node) );
 	        });
 	        
 	        callback( err, keywords );
