@@ -1,4 +1,4 @@
-const _rabbitmqUrl = 'rabbit';
+const _rabbitmqUrl = '10.7.0.6';
 const _elasticSearchUrl = '?';
 
 
