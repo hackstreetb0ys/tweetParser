@@ -1,4 +1,4 @@
-const _rabbitmqUrl = 'rabbit';
+const _rabbitmqUrl = '192.168.99.100';
 const _elasticSearchUrl = '?';
 
 
@@ -42,11 +42,10 @@ const _insertDocument = function(data)
 exports.startParsing = function()
 {
 	console.log('startParsing');
-	_forEachRabbitItem(function( item, queue )
-	{		
-		console.log(item);		
-		const messageText = item;
-
+	_forEachRabbitItem(function(item, queue )
+	{				
+		const messageText = item.data.toString();
+		// console.log(messageText);
 		var documentData = {};
 
 		_parser.extractKeywords( messageText, function( err, result )
