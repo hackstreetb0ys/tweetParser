@@ -21,7 +21,10 @@ const _forEachRabbitItem = function( itemHandler )
 		  q.bind('#');
 
 		  // Receive messages 
-		  q.subscribe({ ack: true }, itemHandler);
+		  q.subscribe({ ack: true }, function( message ) 
+			{
+				itemHandler(message, q) 
+			});
 		});
 	});
 };
@@ -37,9 +40,9 @@ const _insertDocument = function(data)
 
 exports.startParsing = function()
 {
-	_forEachRabbitItem(function( item )
+	_forEachRabbitItem(function( item, queue )
 	{		
-		const messageText = message.text;
+		const messageText = item.text;
 
 		var documentData = {};
 
@@ -51,7 +54,11 @@ exports.startParsing = function()
 			{
 				documentData.sentimentScore = result.data.polarity;
 
+				documentData.dateSaved = new Date().getTime();
+
 				_insertDocument(documentData);
+				
+				queue.shift();
 			});
 		});      		
 	});
