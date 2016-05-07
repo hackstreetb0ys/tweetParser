@@ -43,7 +43,8 @@ exports.startParsing = function()
 {
 	console.log('startParsing');
 	_forEachRabbitItem(function( item, queue )
-	{				
+	{		
+		console.log(item);		
 		const messageText = item;
 
 		var documentData = {};
