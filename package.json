@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "mocha test"
+    "test": "mocha test",
+    "start": "node index.js"
   },
   "repository": {
     "type": "git",
@@ -17,12 +18,13 @@
   },
   "homepage": "https://github.com/anvilCity/tweetParser#readme",
   "dependencies": {
+    "amqp": "^0.2.4",
     "chai": "^3.5.0",
+    "elasticsearch": "^11.0.1",
     "mocha": "^2.4.5",
     "nlcst-to-string": "^1.1.0",
     "retext": "^2.0.0",
     "retext-keywords": "^1.0.1",
-    "retext-sentiment": "^1.0.0",
-    "unist-util-inspect": "^4.0.0"
+    "retext-sentiment": "^1.0.0"
   }
 }

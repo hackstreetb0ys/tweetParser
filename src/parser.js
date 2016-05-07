@@ -2,7 +2,6 @@ const _retext = require('retext');
 const _keywords = require('retext-keywords');
 const _nlcstToString = require('nlcst-to-string');
 const _sentiment = require('retext-sentiment');
-const inspect = require('unist-util-inspect');
 
 exports.parse = function( text, callback )
 {

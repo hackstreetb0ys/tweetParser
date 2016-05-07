@@ -1,3 +1,3 @@
-const parser = require('src/parser.js');
+const worker = require('./src/worker.js');
 
-
+worker.startParsing();
