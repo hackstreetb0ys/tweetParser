@@ -15,7 +15,7 @@ build:
 
     - script:
         name: Make directory
-        code: mkdir $WERCKER_OUT_DIR/app
+        code: mkdir $WERCKER_OUTPUT_DIR/app
 
     - script:
         name: Copy files
