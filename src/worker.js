@@ -1,4 +1,4 @@
-const _rabbitmqUrl = '?';
+const _rabbitmqUrl = 'rabbit';
 const _elasticSearchUrl = '?';
 
 
@@ -14,8 +14,7 @@ const _forEachRabbitItem = function( itemHandler )
 {
 	_connection.on('ready', function () 
 	{
-		// Use the default 'amq.topic' exchange 
-		_connection.queue('my-queue', function (q) 
+		_connection.queue('tweets', function (q) 
 		{
 		  // Catch all messages 
 		  q.bind('#');
@@ -56,7 +55,9 @@ exports.startParsing = function()
 
 				documentData.dateSaved = new Date().getTime();
 
-				_insertDocument(documentData);
+				console.log(documentData);
+				
+				// _insertDocument(documentData);
 				
 				queue.shift();
 			});
