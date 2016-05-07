@@ -13,6 +13,14 @@ build:
         name: Install test
         code: npm test
 
+    - script:
+        name: Make directory
+        code: mkdir /app
+
+    - script:
+        name: Copy files
+        code: cp -R $WERCKER_ROOT/* /app
+
 deploy:
     hub:
     - internal/docker-push:
