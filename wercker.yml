@@ -23,17 +23,18 @@ build:
 
 deploy:
     box: node:4.4.4
-    - script:
-        name: Copy files two
-        code: mkdir /app
+    steps:
+      - script:
+         name: Copy files two
+         code: mkdir /app
         
-    - script:
-        name: Copy files three
-        code: cp -R . /app/
+      - script:
+          name: Copy files three
+          code: cp -R . /app/
 
-    - internal/docker-push:
-        username: $HUB_USER
-        password: $HUB_PASSWORD
-        tag: $WERCKER_GIT_COMMIT, latest
-        repository: anvilcity/tweet-parser
-        entrypoint: node /app/app/index.js
+      - internal/docker-push:
+          username: $HUB_USER
+          password: $HUB_PASSWORD
+          tag: $WERCKER_GIT_COMMIT, latest
+          repository: anvilcity/tweet-parser
+          entrypoint: node /app/app/index.js
