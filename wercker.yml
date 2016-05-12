@@ -23,7 +23,6 @@ build:
 
 deploy:
     box: node:4.4.4
-    hub:
     - script:
         name: Copy files two
         code: mkdir /app
